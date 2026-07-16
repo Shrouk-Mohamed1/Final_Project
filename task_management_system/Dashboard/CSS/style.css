@@ -1,0 +1,494 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: arial, sans-serif;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f6f9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #23242b;
+    color: #fff;
+    position: relative;
+    z-index: 1100;
+    width: 100%; 
+}
+
+.u-name {
+    font-size: 20px;
+    padding-left: 17px;
+}
+
+.u-name b {
+    color: #faa803;
+}
+
+.header i {
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.header i:hover {
+    color: #faa803;
+}
+
+.side-bar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #262931;
+    min-height: 100%;
+    transition: 500ms width;
+}
+
+.body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.user-p {
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 25px;
+}
+
+.user-p img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.user-p h4 {
+    color: #ccc;
+    padding: 5px 0;
+}
+
+.side-bar ul {
+    margin-top: 20px;
+    list-style: none;
+}
+
+
+.side-bar ul li {
+    font-size: 16px;
+    padding: 0; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.side-bar ul li a {
+    text-decoration: none;
+    color: #eee;
+    cursor: pointer;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    transition: 300ms all;
+}
+
+.side-bar ul li a i {
+    display: inline-block;
+    padding-right: 15px;
+    font-size: 23px;
+}
+
+.side-bar ul li a:hover,
+.side-bar ul li.active a {
+    background: #faa803;
+    color: #fff;
+}
+
+.side-bar ul li.active a i {
+    color: #fff;
+}
+
+#navbtn {
+    display: inline-block;
+    margin-left: 70px;
+    font-size: 20px;
+    transition: 500ms color;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked ~ .body .side-bar {
+    width: 60px;
+}
+
+#checkbox:checked ~ .body .side-bar .user-p {
+    visibility: hidden;
+}
+
+#checkbox:checked ~ .body .side-bar a span {
+    display: none;
+}
+
+#checkbox:checked ~ .body .side-bar ul li a {
+    padding: 15px 0;
+    justify-content: center;
+}
+
+#checkbox:checked ~ .body .side-bar ul li a i {
+    padding-right: 0;
+    margin: 0;
+}
+
+.section-1 {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+    overflow-x: auto; 
+}
+
+.section-1 .title a {
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    background: #00CF22;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.section-1 .title a:hover {
+    opacity: 0.8;
+}
+
+
+.main-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.main-table th,
+.main-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.main-table th {
+    background: #262931;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.main-table td {
+    color: #333;
+    font-size: 15px;
+}
+
+.main-table tr:last-child td {
+    border-bottom: none;
+}
+
+.main-table tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.main-table tbody tr:hover {
+    background: #fdf3e1;
+}
+
+.main-table td:last-child {
+    white-space: nowrap;
+}
+
+.edit-btn, .delete-btn {
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.edit-btn { background: #006CE0; }
+.delete-btn { background: #E00051; }
+
+.edit-btn:hover, .delete-btn:hover { opacity: 0.8; }
+
+.main-table .edit-btn,
+.main-table .delete-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    box-shadow: none;
+    margin: 2px;
+}
+
+.profile-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 25px;
+    max-width: 600px;
+    margin-top: 20px;
+    border: 1px solid #eaeaea;
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-table tr {
+    border-bottom: 1px solid #f1f2f5;
+}
+
+.profile-table tr:last-child {
+    border-bottom: none;
+}
+
+.profile-table td {
+    padding: 16px 10px;
+    color: #333;
+    font-size: 15px;
+}
+
+.profile-table td:first-child {
+    font-weight: 700;
+    color: #8a8f98;
+    width: 35%;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-body form {
+    max-width: 420px;
+    width: 90%;
+}
+
+.form-1 {
+    width: 100%;
+    margin: 20px 0 0 0;
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+}
+
+.input-holder {
+    margin-bottom: 20px;
+}
+
+.input-holder label {
+    display: block;
+    padding: 0 0 8px 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8a8f98;
+}
+
+.input-1 {
+    border: 1px solid #d9dce1;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    outline: none;
+    border-radius: 8px;
+    display: block;
+    background: #fafbfc;
+    transition: 0.3s;
+}
+
+.input-1:focus {
+    border-color: #faa803;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(250, 168, 3, 0.15);
+}
+
+.input-1::placeholder {
+    color: #b4b9c2;
+}
+
+.form-1 .edit-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 16px;
+    background: #faa803;
+    box-shadow: 0 8px 16px rgba(250,168,3,0.25);
+    margin-top: 5px;
+}
+
+.form-1 .edit-btn:hover {
+    background: #e39602;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(250,168,3,0.3);
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    gap: 3%;
+    flex-wrap: wrap;
+}
+
+.dashboard-item {
+    text-align: center;
+    width: 31%;
+    background: #262931;
+    border-radius: 10px;
+    padding: 35px 5px;
+    margin-bottom: 30px;
+    height: 190px;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-item i {
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+    margin: 5% auto;
+}
+
+.dashboard-item span {
+    display: block;
+    color: #fff;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .dashboard-item {
+        width: 47%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 12px 15px;
+    }
+
+    .u-name {
+        font-size: 17px;
+        padding-left: 10px;
+    }
+
+
+    .side-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform 300ms ease;
+        z-index: 1000;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.35);
+        padding-top:50px;
+    }
+
+    #checkbox:checked ~ .body .side-bar {
+        transform: translateX(0);
+        width: 260px;
+    }
+
+    #checkbox:checked ~ .body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+
+    #checkbox:checked ~ .body {
+        overflow: hidden;
+    }
+
+    #checkbox:checked ~ .body .side-bar ul li a {
+        justify-content: flex-start;
+        padding: 15px 20px;
+    }
+
+    #checkbox:checked ~ .body .side-bar ul li a i {
+        padding-right: 15px;
+    }
+
+    #checkbox:checked ~ .body .side-bar ul li a span {
+        display: inline-block;
+    }
+
+    #checkbox:checked ~ .body .side-bar .user-p {
+        visibility: visible;
+    }
+
+    .section-1 {
+        padding: 15px;
+    }
+
+    .form-1 {
+        padding: 20px;
+    }
+
+    .dashboard-item {
+        width: 100%;
+        height: auto;
+        padding: 25px 10px;
+    }
+
+    .main-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .main-table th,
+    .main-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+}
