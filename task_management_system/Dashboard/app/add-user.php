@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ],
         'full_name' => [
             'filters'    => FILTER_VALIDATE_REGEXP,
-            'error'      => 'Username invalid, must start with one capital letter and be 7-256 letters.',
+            'error'      => 'Full name invalid, must start with one capital letter and be 7-256 letters.',
             'my_options' => ['options' => ['regexp' => '/^[A-Z][A-Za-z\ ]{6,255}$/']],
         ]
     ];
